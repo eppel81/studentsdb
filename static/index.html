@@ -6,7 +6,9 @@
 		<meta name="description"
 			value="Система Обліку Студентів Навчального Закладу" />
 		<!-- Include Styles -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+			  integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/main.css">
 		<!--<style type="text/css">.col-xs-12, .col-xs-8, .col-xs-4 {border: 1px solid red;}</style>-->
 	</head>
 <body>
@@ -18,7 +20,7 @@
 	     <h1>Сервис учета студентов</h1>
 	    </div>
 	   <!-- groups selector -->
-	   <div class="col-xs-4" id="group selector">
+	   <div class="col-xs-4" id="group-selector">
 	     <strong>Группа:</strong>
 	   	   <select>
 	   	     <option value="">Все студенты</option>
@@ -62,7 +64,7 @@
 		  <tbody>
 		    <tr>
 			  <td>1</td>
-			  <td><img src="./img/me.jpeg" weight="30" height="30"></td>
+			  <td><img src="./img/me.jpeg" weight="30" height="30" class="img-circle"></td>
 			  <td><a title="Редагувати" href="#">Корост</a></td>
 			  <td><a title="Редагувати" href="#">Андрій</a></td>
 			  <td>2123</td>
@@ -75,13 +77,22 @@
 			  	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Редактировать</a></li>
 			  	    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить</a></li>	
 			  	  </ul>
-			  	  	
-			  		
 			  	</div>
 			  </td>
 			</tr>
 		  </tbody>
 		</table>
+		<nav>
+			<ul class="pagination">
+			<li><a href="#">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li class="active"><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">&raquo;</a></li>
+			</ul>
+		</nav>
 <!-- End Students Listing -->
 
 	   </div>	
