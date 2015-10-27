@@ -1,0 +1,47 @@
+{% extends "students/base.html" %}
+
+<!--{% load static from staticfiles %}-->
+
+{% block meta_title %} Группы {% endblock meta_title %}
+
+{% block title %} Перечень групп {% endblock title %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-warning">Изменения отменены</div>
+                <h2>Группы</h2>
+                <a class="btn btn-primary" href="#">Добавить группу</a>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+			            <th>Название</th>
+			            <th>Староста</th>
+			            <th>Дії</th>
+			        </tr>
+		            </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>ВТ-98а</td>
+                            <td><a href="#">Черновол Толик</a></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Действие<span class="carret"></span>
+			  	                    </button>
+			  	                    <ul class="dropdown-menu" role="menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Посещение</a></li>
+			  	                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Редактировать</a></li>
+			  	                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить</a></li>
+			  	                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+{% endblock content %}

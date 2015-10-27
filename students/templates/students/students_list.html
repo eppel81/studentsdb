@@ -1,50 +1,12 @@
-{% load static from staticfiles %}
+{% extends "students/base.html" %}
 
-<!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<meta charset="UTF-8"/>
-		<title>Сервіс Обліку Студентів</title>
-		<meta name="description"
-			value="Система Обліку Студентів Навчального Закладу" />
-		<!-- Include Styles -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-			  integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-		<link rel="stylesheet" href="{% static 'students/css/main.css' %}">
-		<!--<style type="text/css">.col-xs-12, .col-xs-8, .col-xs-4 {border: 1px solid red;}</style>-->
-	</head>
-<body>
-	<div class="container">
-	 <!-- start header -->
-	  <div class="row" id="header">
-	    <!-- logo -->
-	    <div class="col-xs-8">
-	     <h1>Сервис учета студентов</h1>
-	    </div>
-	   <!-- groups selector -->
-	   <div class="col-xs-4" id="group-selector">
-	     <strong>Группа:</strong>
-	   	   <select>
-	   	     <option value="">Все студенты</option>
-	   	   	 <option value="">ВТ-98, Иванов Иван Иванович (№ 214)</option>
-	   	     <option value="">ВТ-98, Петров Петр Петрович (№ 2107)</option>
-	   	   </select>
-	   </div>
-	  </div> 
-	 <!-- end header -->
+<!--{% load static from staticfiles %}-->
 
-	 <!-- start subheader -->
-	  <div class="row" id="sub-header">
-	   <div class="col-xs-12">
-	    <ul class="nav nav-tabs" role="tablist">
-	     <li role="presentation" class="active"><a href="{% url 'home' %}">Студенты</a></li>
-	     <li role="presentation"><a href="/journal">Посещение</a></li>
-	     <li role="presentation"><a href="/groups">Группы</a></li>
-	    </ul>
-	   </div>
-	  </div>
-	 <!-- end subheader -->
+{% block meta_title %}Студенти{% endblock meta_title %}
 
+{% block title %}База Студентів{% endblock title %}
+
+{% block content %}
 	 <!-- start mail page content -->
 	  <div class="row" id="content-columns">
 	   <div class="col-xs-12" id="content column">
@@ -64,24 +26,6 @@
 			</tr>
 		   </thead>
 		  <tbody>
-		    <!--<tr>-->
-			  <!--<td>1</td>-->
-			  <!--<td><img src="{% static 'students/img/me.jpeg' %}" weight="30" height="30" class="img-circle"></td>-->
-			  <!--<td><a title="Редагувати" href="{% url 'students_edit' 1 %}">Корост</a></td>-->
-			  <!--<td><a title="Редагувати" href="{% url 'students_edit' 1 %}">Андрій</a></td>-->
-			  <!--<td>2123</td>-->
-			  <!--<td>-->
-			  	<!--<div class="dropdown">-->
-			  	  <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Действие<span class="carret"></span>-->
-			  	  <!--</button>			  	  -->
-			  	  <!--<ul class="dropdown-menu" role="menu">-->
-			  	    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="/journal/1">Посещение</a></li>-->
-			  	    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_edit' 1 %}">Редактировать</a></li>-->
-			  	    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_delete' 1 %}">Удалить</a></li>-->
-			  	  <!--</ul>-->
-			  	<!--</div>-->
-			  <!--</td>-->
-			<!--</tr>-->
 		  	{% for stud in students %}
 				<tr>
 					<td>{{ stud.id }}</td>
@@ -115,25 +59,9 @@
 			<li><a href="#">&raquo;</a></li>
 			</ul>
 		</nav>
-<!-- End Students Listing -->
+	<!-- End Students Listing -->
 
 	   </div>	
 	  </div>
 	 <!-- end main page content -->
-
-	 <!-- start footer -->
-	 <div class="row" id="footer">
-	  <div class="col-xs-12">
-	   &copy; 2015 Сервис учета студентов
-	  </div>
-	 </div>
-	 <!-- end footer -->
-		<!-- <h1>Вітаю вас на нашій сторінці!</h1> -->
-		<!-- <p>Поки тут порожньо, але незабаром ми матимемо список студентів.</p> -->
-	</div>
-
-	<!-- Javascripts Section -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock content %}
