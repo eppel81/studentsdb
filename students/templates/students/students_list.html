@@ -1,3 +1,5 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -8,7 +10,7 @@
 		<!-- Include Styles -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
 			  integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="{% static 'students/css/main.css' %}">
 		<!--<style type="text/css">.col-xs-12, .col-xs-8, .col-xs-4 {border: 1px solid red;}</style>-->
 	</head>
 <body>
@@ -62,24 +64,44 @@
 			</tr>
 		   </thead>
 		  <tbody>
-		    <tr>
-			  <td>1</td>
-			  <td><img src="./img/me.jpeg" weight="30" height="30" class="img-circle"></td>
-			  <td><a title="Редагувати" href="{% url 'students_edit' 1 %}">Корост</a></td>
-			  <td><a title="Редагувати" href="{% url 'students_edit' 1 %}">Андрій</a></td>
-			  <td>2123</td>
-			  <td>
-			  	<div class="dropdown">
-			  	  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Действие<span class="carret"></span>
-			  	  </button>			  	  
-			  	  <ul class="dropdown-menu" role="menu">
-			  	    <li role="presentation"><a role="menuitem" tabindex="-1" href="/journal/1">Посещение</a></li>
-			  	    <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_edit' 1 %}">Редактировать</a></li>
-			  	    <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_delete' 1 %}">Удалить</a></li>
-			  	  </ul>
-			  	</div>
-			  </td>
-			</tr>
+		    <!--<tr>-->
+			  <!--<td>1</td>-->
+			  <!--<td><img src="{% static 'students/img/me.jpeg' %}" weight="30" height="30" class="img-circle"></td>-->
+			  <!--<td><a title="Редагувати" href="{% url 'students_edit' 1 %}">Корост</a></td>-->
+			  <!--<td><a title="Редагувати" href="{% url 'students_edit' 1 %}">Андрій</a></td>-->
+			  <!--<td>2123</td>-->
+			  <!--<td>-->
+			  	<!--<div class="dropdown">-->
+			  	  <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Действие<span class="carret"></span>-->
+			  	  <!--</button>			  	  -->
+			  	  <!--<ul class="dropdown-menu" role="menu">-->
+			  	    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="/journal/1">Посещение</a></li>-->
+			  	    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_edit' 1 %}">Редактировать</a></li>-->
+			  	    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_delete' 1 %}">Удалить</a></li>-->
+			  	  <!--</ul>-->
+			  	<!--</div>-->
+			  <!--</td>-->
+			<!--</tr>-->
+		  	{% for stud in students %}
+				<tr>
+					<td>{{ stud.id }}</td>
+					<td><img src="{% static stud.image %}" weight="30" height="30" class="img-circle"></td>
+					<td><a title="Редактировать" href="{% url 'students_edit' stud.id %}">{{ stud.last_name }}</a></td>
+					<td><a title="Редактировать" href="{% url 'students_edit' stud.id %}">{{ stud.first_name }}</a></td>
+					<td>{{ stud.ticket }}</td>
+					<td>
+						<div class="dropdown">
+			  	  			<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Действие<span class="carret"></span>
+			  	  			</button>
+							<ul class="dropdown-menu" role="menu">
+			  	    			<li role="presentation"><a role="menuitem" tabindex="-1" href="/journal/{{ stud.id }}">Посещение</a></li>
+			  	    			<li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_edit' stud.id %}">Редактировать</a></li>
+			  	    			<li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'students_delete' stud.id %}">Удалить</a></li>
+			  	  			</ul>
+			  			</div>
+					</td>
+				</tr>
+		  	{% endfor %}
 		  </tbody>
 		</table>
 		<nav>
