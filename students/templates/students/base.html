@@ -39,12 +39,20 @@
 	  <div class="row" id="sub-header">
 	   <div class="col-xs-12">
 	    <ul class="nav nav-tabs" role="tablist">
-	     <li role="presentation" class="active"><a href="{% url 'home' %}">Студенты</a></li>
+
+            {% url 'home' as url_home %}
+            <!--{% url '' as url_home %}-->
+            {% url 'groups' as url_groups %}
+
+	     <li role="presentation"
+             {% if '/' == request.path %} class="active" {% endif %}><a href="{% url 'home' %}">Студенты</a></li>
 	     <li role="presentation"><a href="/journal">Посещение</a></li>
-	     <li role="presentation"><a href="/groups">Группы</a></li>
+	     <li role="presentation"
+             {% if url_groups == request.path %} class="active" {% endif %}><a href="{% url 'groups' %}">Группы</a></li>
 	    </ul>
 	   </div>
 	  </div>
+
 	 <!-- end subheader -->
 
 	 <!-- start main page content -->
